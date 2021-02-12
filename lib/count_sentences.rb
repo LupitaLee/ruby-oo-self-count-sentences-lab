@@ -2,19 +2,30 @@ require 'pry'
 
 class String
 
-  def sentence?
+    def sentence?
+    self.end_with?(".")
+     
+  end
+  
+    def question?
+  # binding.pry
+  self.end_with?("?")
     
-  end
-
-  def question?
-
-  end
-
-  def exclamation?
-
-  end
-
-  def count_sentences
-
+    end
+  
+    def exclamation?
+    self.end_with?("!")
+        
+    end
+    
+    def count_sentences
+      counter = 0
+      # binding.pry
+      self.split(" ").each do |word|
+      if word.sentence? || word.question? || word.exclamation?
+        counter += 1
+      end
+    end
+    counter
   end
 end
